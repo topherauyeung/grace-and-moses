@@ -1,3 +1,86 @@
 /* ==========================================================================
    Site styles
    ========================================================================== */
+
+body {
+	background: url('../assets/illustration-bg.png') no-repeat;
+	background-position: top center;
+	background-size: 1280px auto;
+}
+
+.container {
+	max-width: 1280px;
+	display: block;
+	position: relative;
+	margin: 0 auto;
+}
+
+/* Header */
+.nav--logo {
+	width: 201px;
+	display: block;
+	position: relative;
+	margin: 0 auto;
+}
+
+.nav--main {
+	position: absolute;
+	top: 0;
+	padding-top: 150px;
+}
+
+.nav--left,
+.nav--right {
+	padding: 0;
+	font-family: "proxima-nova-condensed";
+	font-size: $font-size-4;
+	text-transform: uppercase;
+	list-style-type: none;
+	display: inline-block;
+
+	li {
+		display: inline-block;
+	}
+}
+
+.nav--left {
+	text-align: left;
+
+	li {
+		padding-right: 70px;
+	}
+}
+
+.nav--right {
+	float: right;
+	text-align: right;
+
+	li {
+		padding-left: 70px;
+	}
+}
+
+
+/* Story Section */
+
+.sect--story {
+	margin-top: -110px;
+}
+
+.story--photo {
+	margin-bottom: 0;
+}
+
+.story--lettering {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	display: inline-block;
+}
+
+.story--text-mobile {
+	display: none;
+
+	@include break(mobile) {
+		display: inline;
+	}
+}

@@ -4,10 +4,21 @@
    - Headings
    ========================================================================== */
 
+body {
+	font-family: "clavo";
+	color: $gray-dark;
+}
+
+a { text-decoration: none; }
+a:link { color: #9ccec7; }
+a:visited { color: #9ccec7; }
+a:hover { color: #66a79d; }
+a:active { color: #9ccec7; }
+
 /* Copy
    ========================================================================== */
 
-p {           font-size: $font-size-4; }
+p {           font-size: $font-size-5; line-height: 2em; }
 .intro {      font-size: $font-size-3; }
 
 

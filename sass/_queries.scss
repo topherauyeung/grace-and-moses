@@ -17,17 +17,17 @@
 
 @mixin break($point) {
   @if $point == mobile {
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 900px) {
       @content;
     }
   }
   @else if $point == medium {
-    @media screen and (min-width: 501px) and (max-width: 1024px) {
+    @media screen and (min-width: 901px) and (max-width: 1150px) {
       @content;
     }
   }
   @else if $point == large {
-    @media screen and (min-width: 1025px)  {
+    @media screen and (min-width: 1101px)  {
       @content;
     }
   }

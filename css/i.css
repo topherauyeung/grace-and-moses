@@ -449,30 +449,50 @@ img, canvas, iframe, video, svg { max-width: 100%; }
 
 /* Add your sass to sass/_styles.scss */
 /* ========================================================================== Site styles ========================================================================== */
-body { background: url("../assets/illustration-bg.png") no-repeat; background-position: top center; -webkit-background-size: 1280px auto; background-size: 1280px auto; }
+body { background: url("../assets/illustration-bg.png") no-repeat; background-position: top center; -webkit-background-size: 1280px auto; background-size: 1280px auto; padding-left: 40px; padding-right: 40px; }
+@media screen and (min-width: 901px) and (max-width: 1150px) { body { -webkit-background-size: 100% auto; background-size: 100% auto; } }
+@media screen and (max-width: 900px) { body { -webkit-background-size: 800px auto; background-size: 800px auto; text-align: center; padding-left: 20px; padding-right: 20px; } }
 
 .container { max-width: 1280px; display: block; position: relative; margin: 0 auto; }
 
 /* Header */
 .nav--logo { width: 201px; display: block; position: relative; margin: 0 auto; }
+@media screen and (min-width: 901px) and (max-width: 1150px) { .nav--logo { width: 125px; } }
+@media screen and (max-width: 900px) { .nav--logo { width: 125px; } }
 
-.nav--main { position: absolute; top: 0; padding-top: 150px; }
+.nav--main { position: absolute; top: 0; padding-top: 150px; width: 100%; }
+@media screen and (min-width: 901px) and (max-width: 1150px) { .nav--main { padding-top: 120px; } }
+@media screen and (max-width: 900px) { .nav--main { position: relative; padding-top: 10px; padding-bottom: 10px; } }
 
 .nav--left, .nav--right { padding: 0; font-family: "proxima-nova-condensed"; font-size: 24px; text-transform: uppercase; list-style-type: none; display: inline-block; }
 .nav--left li, .nav--right li { display: inline-block; }
+@media screen and (min-width: 901px) and (max-width: 1150px) { .nav--left, .nav--right { font-size: 18px; } }
+@media screen and (max-width: 900px) { .nav--left, .nav--right { font-size: 18px; display: block; margin: 0; }
+  .nav--left li, .nav--right li { display: block; margin: 10px auto; padding-top: 5px; padding-bottom: 15px; border-bottom: 1px solid #ebebeb; } }
 
 .nav--left { text-align: left; }
 .nav--left li { padding-right: 70px; }
+@media screen and (max-width: 900px) { .nav--left { text-align: center; }
+  .nav--left li { padding-right: 0; } }
 
 .nav--right { float: right; text-align: right; }
 .nav--right li { padding-left: 70px; }
+@media screen and (max-width: 900px) { .nav--right { float: none; text-align: center; }
+  .nav--right li { padding-left: 0; } }
 
 /* Story Section */
 .sect--story { margin-top: -110px; }
+@media screen and (min-width: 901px) and (max-width: 1150px) { .sect--story { margin-top: -20px; } }
+@media screen and (max-width: 900px) { .sect--story { margin-top: 0; } }
 
-.story--photo { margin-bottom: 0; }
+.story--photo { margin-bottom: 10px; }
+@media screen and (max-width: 900px) { .story--photo { display: none; } }
 
 .story--lettering { padding-top: 20px; padding-bottom: 20px; display: inline-block; }
+@media screen and (max-width: 900px) { .story--lettering { display: none; } }
+
+.story--lettering-alt { padding: 0; display: inline-block; }
+@media screen and (max-width: 900px) { .story--lettering-alt { display: none; } }
 
 .story--text-mobile { display: none; }
-@media screen and (max-width: 500px) { .story--text-mobile { display: inline; } }
+@media screen and (max-width: 900px) { .story--text-mobile { display: inline; font-weight: bold; font-size: 24px; font-style: italic; } }

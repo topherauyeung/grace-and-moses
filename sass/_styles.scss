@@ -6,6 +6,19 @@ body {
 	background: url('../assets/illustration-bg.png') no-repeat;
 	background-position: top center;
 	background-size: 1280px auto;
+	padding-left: 40px;
+	padding-right: 40px;
+
+	@include break(medium) {
+		background-size: 100% auto;
+	}
+
+	@include break(mobile) {
+		background-size: 800px auto;
+		text-align: center;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
 }
 
 .container {
@@ -21,12 +34,31 @@ body {
 	display: block;
 	position: relative;
 	margin: 0 auto;
+
+	@include break(medium) {
+		width: 125px;
+	}
+
+	@include break(mobile) {
+		width: 125px;
+	}
 }
 
 .nav--main {
 	position: absolute;
 	top: 0;
 	padding-top: 150px;
+	width: 100%;
+
+	@include break(medium) {
+		padding-top: 120px;
+	}
+
+	@include break(mobile) {
+		position: relative;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
 }
 
 .nav--left,
@@ -41,6 +73,25 @@ body {
 	li {
 		display: inline-block;
 	}
+
+	@include break(medium) {
+		font-size: $font-size-5;
+	}
+
+	@include break(mobile) {
+		font-size: $font-size-5;
+		display: block;
+		margin: 0;
+
+		li {
+			display: block;
+			margin: 10px auto;
+			padding-top: 5px;
+			padding-bottom: 15px;
+			border-bottom: 1px solid #ebebeb;
+		}
+	}
+
 }
 
 .nav--left {
@@ -48,6 +99,14 @@ body {
 
 	li {
 		padding-right: 70px;
+	}
+
+	@include break(mobile) {
+		text-align: center;
+
+		li {
+			padding-right: 0;
+		}
 	}
 }
 
@@ -58,6 +117,15 @@ body {
 	li {
 		padding-left: 70px;
 	}
+
+	@include break(mobile) {
+		float: none;
+		text-align: center;
+
+		li {
+			padding-left: 0;
+		}
+	}
 }
 
 
@@ -65,16 +133,41 @@ body {
 
 .sect--story {
 	margin-top: -110px;
+
+	@include break(medium) {
+		margin-top: -20px;
+	}
+
+	@include break(mobile) {
+		margin-top: 0;
+	}
 }
 
 .story--photo {
-	margin-bottom: 0;
+	margin-bottom: 10px;
+
+	@include break(mobile) {
+		display: none;
+	}
 }
 
 .story--lettering {
 	padding-top: 20px;
 	padding-bottom: 20px;
 	display: inline-block;
+
+	@include break(mobile) {
+		display: none;
+	}
+}
+
+.story--lettering-alt {
+	padding: 0;
+	display: inline-block;
+
+	@include break(mobile) {
+		display: none;
+	}
 }
 
 .story--text-mobile {
@@ -82,5 +175,8 @@ body {
 
 	@include break(mobile) {
 		display: inline;
+		font-weight: bold;
+		font-size: $font-size-4;
+		font-style: italic;
 	}
 }

@@ -14,11 +14,11 @@
 		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
   </head>
   <body>
-		<div class="container grid">
-			<header class="grid__item one-whole">
-				<img src="assets/logo.png" alt="grace and moses - 10/18/14" class="nav--logo">
-				<div class="grid">
-					<nav class="nav--main grid__item one-whole">
+		<div class="container">
+			<div class="grid">
+				<header class="grid__item one-whole">
+					<img src="assets/logo.png" alt="grace and moses - 10/18/14" class="nav--logo">
+					<nav class="nav--main">
 						<ul class="nav--left">
 							<li>
 								<a href="#story">Our Story</a>
@@ -42,36 +42,53 @@
 							</li>
 						</ul>
 					</nav>
-				</div>
-			</header>
-			<section class="sect--story grid__item one-whole">
-				<h1 class="story--photo">
-					<img src="assets/hero.jpg" alt="grace and moses - our story">
-				</h1>
-				<img src="assets/story-01.png" alt="One evening in December 2012, Grace and Moses met at Alamo Square Community Group." class="story--lettering">
-				<p class="story--paragraph">
-					<span class="story--text-mobile">One evening in December 2012, Grace and Moses met at Alamo Square Community Group.</span> With the prodding of their friends Angelo (one of Moses’s roommates) and Chris (Grace’s roommate and confidant), Grace and Moses struck up a conversation. As Moses was talking to Grace, Angelo and Chris gave him thumbs up signs from behind her. Pretending not to notice, she continued ignoring their giggles and hand movements to make their interactions more natural.
-				</p>
-				<img src="assets/story-02.png" alt="Moses was immediately attracted to Grace's smile and warm friendliness." class="story--lettering">
-				<p class="story--paragraph">
-					<span class="story--text-mobile">Moses was immediately attracted to Grace's smile and warm friendliness.</span> He tried very hard to play it cool, but couldn’t suppress the huge grin on his face. Grace, on the other hand, could tell Moses was a “nice guy” but didn’t think much more than that. A few days later at a happy hour, Grace and Moses were chatting together at the bar and Angelo came up to break the ice.
-				</p>
-				<img src="assets/story-03.png" alt="Man, I just want you guys to date." class="story--lettering">
-				<p class="story--paragraph">
-					<span class="story--text-mobile">"Man, I just want you guys to date."</span> And then walked away without another word. As Grace stood, shocked and speechless, Moses casually said, “Hey, so you know that our friends are trying to set us up, right?”
-				</p>
-				<p class="story--paragraph">
-					“Yeah…” she shyly answered. “Yeah. Well, we should get to know each other,” he confidently says. “Oh. Ok.” Grace replies. “Cool. Well, I’ll give you a call sometime.” And that was when Grace realized that this “nice guy” was also a forward and self-assured man.
-				</p>
-				<p class="story--paragraph">
-					A few days later, Moses texted Grace, “What are you up to tomorrow night?” To which Grace replied “Dinner with you? :)” Moses, appreciative of Grace’s directness, replied, “Yeah I would like to have dinner with you tomorrow night. How about I come pick you up at your house at 7?”
-				</p>
-				<img src="assets/story-04.png" alt="And the rest is history." class="story--lettering">
-				<p class="story--paragraph">
-					<span class="story--text-mobile">And the rest is history.</span>
-				</p>
-			</section>
+				</header>
+				<section id="story" class="sect--story grid__item one-whole">
+					<h1 class="story--photo">
+						<img src="assets/hero.jpg" alt="grace and moses - our story">
+					</h1>
+					<img src="assets/story-01.png" alt="One evening in December 2012, Grace and Moses met at Alamo Square Community Group." class="story--lettering">
+					<p class="story--paragraph">
+						<span class="story--text-mobile">One evening in December 2012, Grace and Moses met at Alamo Square Community Group.<br></span> With the prodding of their friends Angelo (one of Moses’s roommates) and Chris (Grace’s roommate and confidant), Grace and Moses struck up a conversation. As Moses was talking to Grace, Angelo and Chris gave him thumbs up signs from behind her. Pretending not to notice, she continued ignoring their giggles and hand movements to make their interactions more natural.
+					</p>
+					<img src="assets/story-02.png" alt="Moses was immediately attracted to Grace's smile and warm friendliness." class="story--lettering">
+					<p class="story--paragraph">
+						<span class="story--text-mobile">Moses was immediately attracted to Grace's smile and warm friendliness.<br></span> He tried very hard to play it cool, but couldn’t suppress the huge grin on his face. Grace, on the other hand, could tell Moses was a “nice guy” but didn’t think much more than that. A few days later at a happy hour, Grace and Moses were chatting together at the bar and Angelo came up to break the ice.
+					</p>
+					<img src="assets/story-03.png" alt="Man, I just want you guys to date." class="story--lettering">
+					<p class="story--paragraph">
+						<span class="story--text-mobile">"Man, I just want you guys to date."<br></span> And then walked away without another word. As Grace stood, shocked and speechless, Moses casually said, “Hey, so you know that our friends are trying to set us up, right?”
+					</p>
+					<p class="story--paragraph">
+						“Yeah…” she shyly answered. “Yeah. Well, we should get to know each other,” he confidently says. “Oh. Ok.” Grace replies. “Cool. Well, I’ll give you a call sometime.” And that was when Grace realized that this “nice guy” was also a forward and self-assured man.
+					</p>
+					<p class="story--paragraph">
+						A few days later, Moses texted Grace, “What are you up to tomorrow night?” To which Grace replied “Dinner with you? :)” Moses, appreciative of Grace’s directness, replied, “Yeah I would like to have dinner with you tomorrow night. How about I come pick you up at your house at 7?”
+					</p>
+					<img src="assets/story-04.png" alt="And the rest is history." class="story--lettering-alt">
+					<p class="story--paragraph">
+						<span class="story--text-mobile">And the rest is history.<br></span>
+					</p>
+				</section>
+			</div>
 		</div>
 
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script>
+		$(function() {
+			$('a[href*=#]:not([href=#])').click(function() {
+				if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+					var target = $(this.hash);
+					target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+					if (target.length) {
+						$('html,body').animate({
+							scrollTop: target.offset().top
+						}, 500);
+						return false;
+					}
+				}
+			});
+		});
+	</script>
   </body>
 </html>

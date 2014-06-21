@@ -8,6 +8,7 @@ body {
 	background-size: 1280px auto;
 	padding-left: 40px;
 	padding-right: 40px;
+	padding-bottom: 120px;
 
 	@include break(medium) {
 		background-size: 100% auto;
@@ -179,4 +180,29 @@ body {
 		font-size: $font-size-4;
 		font-style: italic;
 	}
+}
+
+/* Details Section */
+
+.sect--details {
+	margin-top: 40px;
+}
+
+.sect--details-container {
+	background-color: $gray-light;
+	padding: 20px 30px;
+	text-align: center;
+
+	@include break(mobile) {
+		padding: 10px;
+	}
+}
+
+.details-header {
+	margin-top: 10px;
+	font-size: $font-size-2;
+	font-weight: 100;
+	font-family: "proxima-nova-condensed";
+	text-transform: uppercase;
+	letter-spacing: 2px;
 }

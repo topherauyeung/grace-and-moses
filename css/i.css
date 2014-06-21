@@ -449,7 +449,7 @@ img, canvas, iframe, video, svg { max-width: 100%; }
 
 /* Add your sass to sass/_styles.scss */
 /* ========================================================================== Site styles ========================================================================== */
-body { background: url("../assets/illustration-bg.png") no-repeat; background-position: top center; -webkit-background-size: 1280px auto; background-size: 1280px auto; padding-left: 40px; padding-right: 40px; }
+body { background: url("../assets/illustration-bg.png") no-repeat; background-position: top center; -webkit-background-size: 1280px auto; background-size: 1280px auto; padding-left: 40px; padding-right: 40px; padding-bottom: 120px; }
 @media screen and (min-width: 901px) and (max-width: 1150px) { body { -webkit-background-size: 100% auto; background-size: 100% auto; } }
 @media screen and (max-width: 900px) { body { -webkit-background-size: 800px auto; background-size: 800px auto; text-align: center; padding-left: 20px; padding-right: 20px; } }
 
@@ -496,3 +496,11 @@ body { background: url("../assets/illustration-bg.png") no-repeat; background-po
 
 .story--text-mobile { display: none; }
 @media screen and (max-width: 900px) { .story--text-mobile { display: inline; font-weight: bold; font-size: 24px; font-style: italic; } }
+
+/* Details Section */
+.sect--details { margin-top: 40px; }
+
+.sect--details-container { background-color: #eeeeee; padding: 20px 30px; text-align: center; }
+@media screen and (max-width: 900px) { .sect--details-container { padding: 10px; } }
+
+.details-header { margin-top: 10px; font-size: 48px; font-weight: 100; font-family: "proxima-nova-condensed"; text-transform: uppercase; letter-spacing: 2px; }

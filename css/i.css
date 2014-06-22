@@ -491,16 +491,49 @@ body { background: url("../assets/illustration-bg.png") no-repeat; background-po
 .story--lettering { padding-top: 20px; padding-bottom: 20px; display: inline-block; }
 @media screen and (max-width: 900px) { .story--lettering { display: none; } }
 
-.story--lettering-alt { padding: 0; display: inline-block; }
+.story--lettering-alt { padding-top: 0; padding-bottom: 30px; display: inline-block; }
 @media screen and (max-width: 900px) { .story--lettering-alt { display: none; } }
 
 .story--text-mobile { display: none; }
 @media screen and (max-width: 900px) { .story--text-mobile { display: inline; font-weight: bold; font-size: 24px; font-style: italic; } }
 
 /* Details Section */
-.sect--details { margin-top: 40px; }
+.sect--details { margin-top: 80px; margin-bottom: 80px; }
 
-.sect--details-container { background-color: #eeeeee; padding: 20px 30px; text-align: center; }
-@media screen and (max-width: 900px) { .sect--details-container { padding: 10px; } }
+.sect--details-container { text-align: center; }
 
-.details-header { margin-top: 10px; font-size: 48px; font-weight: 100; font-family: "proxima-nova-condensed"; text-transform: uppercase; letter-spacing: 2px; }
+.details-header { margin-top: 10px; margin-bottom: 30px; font-size: 32px; font-weight: 900; font-family: "proxima-nova-condensed"; text-transform: uppercase; letter-spacing: 2px; padding: 15px 20px; background-color: #3f4342; color: white; display: inline-block; }
+
+/* Wedding Party Section */
+.wedding-party--item { text-align: center; }
+
+.wedding-party--photo { margin-top: 60px; width: 100%; padding-bottom: 100%; height: 0; background-position: top center; -webkit-background-size: cover; background-size: cover; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-repeat: no-repeat; }
+.wedding-party--photo:hover { background-position: bottom center; }
+
+.wedding-party--photo-jen { background-image: url("../assets/wedding-party-assets/jen.jpg"); }
+
+.wedding-party--photo-jackie { background-image: url("../assets/wedding-party-assets/jackie.jpg"); }
+
+.wedding-party--photo-christine { background-image: url("../assets/wedding-party-assets/christine.jpg"); }
+
+.wedding-party--photo-tiffany { background-image: url("../assets/wedding-party-assets/tiffany.jpg"); }
+
+.wedding-party--photo-teresa { background-image: url("../assets/wedding-party-assets/teresa.jpg"); }
+
+.wedding-party--photo-sarah { background-image: url("../assets/wedding-party-assets/sarah.jpg"); }
+
+.wedding-party--photo-abe { background-image: url("../assets/wedding-party-assets/abe.jpg"); }
+
+.wedding-party--photo-angelo { background-image: url("../assets/wedding-party-assets/angelo.jpg"); }
+
+.wedding-party--photo-dj { background-image: url("../assets/wedding-party-assets/dj.jpg"); }
+
+.wedding-party--photo-alex { background-image: url("../assets/wedding-party-assets/alex.jpg"); }
+
+.wedding-party--photo-dave { background-image: url("../assets/wedding-party-assets/dave.jpg"); }
+
+.wedding-party--photo-jason { background-image: url("../assets/wedding-party-assets/jason.jpg"); }
+
+.wedding-party--name { margin-bottom: 3px; }
+
+.sect--registry { margin-top: 0; margin-bottom: 80px; }

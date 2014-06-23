@@ -508,8 +508,9 @@ body { background: url("../assets/illustration-bg.png") no-repeat; background-po
 /* Wedding Party Section */
 .wedding-party--item { text-align: center; }
 
-.wedding-party--photo { margin-top: 60px; width: 100%; padding-bottom: 100%; height: 0; background-position: top center; -webkit-background-size: cover; background-size: cover; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-repeat: no-repeat; }
-.wedding-party--photo:hover { background-position: bottom center; }
+.wedding-party--photo { -webkit-user-select: none; -webkit-touch-callout: none; margin-top: 60px; width: 100%; padding-bottom: 100%; height: 0; background-position: top center; -webkit-background-size: cover; background-size: cover; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-repeat: no-repeat; }
+.wedding-party--photo:hover, .wedding-party--photo.hover_effect { background-position: bottom center; }
+
 
 .wedding-party--photo-jen { background-image: url("../assets/wedding-party-assets/jen.jpg"); }
 

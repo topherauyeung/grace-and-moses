@@ -537,3 +537,18 @@ body { background: url("../assets/illustration-bg.png") no-repeat; background-po
 .wedding-party--name { margin-bottom: 3px; }
 
 .sect--registry { margin-top: 0; margin-bottom: 80px; }
+
+/* RSVP styles */
+.rsvp-bg { background: none; }
+
+.rsvp-form-container { padding-top: 40px; text-align: left; }
+
+.rsvp--input { display: inline-block; width: 100%; padding: 15px 18px; margin-top: 10px; margin-bottom: 10px; border: 1px solid #eeeeee; background-color: #eeeeee; outline: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; }
+
+.rsvp--input:focus { background-color: white; border: 1px solid #eeeeee; }
+
+.rsvp--input-radio { display: inline-block; margin-right: 5px; margin-bottom: 15px; }
+
+.rsvp-label { margin-top: 30px; margin-bottom: 10px; display: inline-block; width: 100%; font-weight: bold; }
+
+.rsvp-label-hidden { visibility: hidden; }

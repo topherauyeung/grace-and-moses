@@ -51,6 +51,13 @@
 				<input type="radio" name="invitation[status]" value="declined" class="rsvp--input-radio">
 				<span class="rsvp-label-radio">No, I won't be able to join.</span><br>
 				
+				<label class="rsvp-label" for="accepted-seats">
+					How many people will be coming?
+				</label>
+				<select id="accepted-seats" name="invitation[accepted_seats]">
+				</select>
+
+
 				<label class="rsvp-label" for="in-laws">
 					What should Grace &amp; Moses keep in mind when interacting with the in-laws?
 				</label>
@@ -119,6 +126,17 @@
 			if (data.designated_seats == 1) {
 				$('#seat-word').html('seat');
 			}
+			for (var i = 0; i < data.designated_seats; i++) {
+				var seatOption = i + 1;
+				var optionField = $('<option></option>')
+					.attr('value', seatOption)
+					.text(seatOption);
+				if (seatOption == data.designated_seats) {
+					optionField.attr('selected', 'selected');
+				}
+				$('#accepted-seats').append(optionField);
+			}
+
 			$('#rsvp-form').attr('action', APP_HOST + '/invitations/' + data.id);
 		}
 	</script>

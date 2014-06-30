@@ -42,35 +42,36 @@
 				<label class="rsvp-label" for="attending">
 					Are you planning on joining us?
 				</label>
-				<input type="radio" name="attending" value="yes" class="rsvp--input-radio" required>
+				<input type="radio" name="invitation[status]" value="yes" class="rsvp--input-radio" required>
 				<span class="rsvp-label-radio">Yes, I will be attending!</span><br>
-				<input type="radio" name="attending" value="no" class="rsvp--input-radio">
+				<input type="radio" name="invitation[status]" value="no" class="rsvp--input-radio">
 				<span class="rsvp-label-radio">No, I won't be able to join.</span><br>
 				<label class="rsvp-label" for="attending">
 					What should Grace &amp; Moses keep in mind when interacting with the in-laws?
 				</label>
-				<input type="text" name="in-laws" class="rsvp--input" required>
+				<input type="text" name="invitation[questions][in_law_advice]" class="rsvp--input" required>
 				<label class="rsvp-label" for="attending">
 					What should Grace &amp; Moses always have in their refrigerator?
 				</label>
-				<input type="text" name="fridge" class="rsvp--input" required>
+				<input type="text" name="invitation[questions][fridge_advice]" class="rsvp--input" required>
 				<label class="rsvp-label" for="attending">
 					What is one word you would use to describe Grace &amp; Moses as a couple?
 				</label>
-				<input type="text" name="one-word-couple" class="rsvp--input" required>
+				<input type="text" name="invitation[questions][one_word]" class="rsvp--input" required>
 				<label class="rsvp-label" for="alcohol">
 					What is your alcohol of choice?
 				</label>
-				<input type="radio" name="alcohol" value="Red Wine" class="rsvp--input-radio" required>
+				<input type="radio" name="invitation[questions][preferred_alcohol]" value="Red Wine" class="rsvp--input-radio" required>
 				<span class="rsvp-label-radio">Red Wine</span><br>
-				<input type="radio" name="alcohol" value="White Wine" class="rsvp--input-radio">
+				<input type="radio" name="invitation[questions][preferred_alcohol]" value="White Wine" class="rsvp--input-radio">
 				<span class="rsvp-label-radio">White Wine</span><br>
-				<input type="radio" name="alcohol" value="Craft Beer" class="rsvp--input-radio">
+				<input type="radio" name="invitation[questions][preferred_alcohol]" value="Craft Beer" class="rsvp--input-radio">
 				<span class="rsvp-label-radio">Craft Beer</span><br>
-				<input type="radio" name="alcohol" value="Mimosa" class="rsvp--input-radio">
+				<input type="radio" name="invitation[questions][preferred_alcohol]" value="Mimosa" class="rsvp--input-radio">
 				<span class="rsvp-label-radio">Mimosa</span><br>
-				<input type="radio" name="alcohol" value="Champagne" class="rsvp--input-radio">
+				<input type="radio" name="invitation[questions][preferred_alcohol]" value="Champagne" class="rsvp--input-radio">
 				<span class="rsvp-label-radio">Champagne</span>
+				<input type="hidden" name="_method" value="PUT">
 				<button type="submit" class="rsvp--button-submit">Submit</button>
 			</form>
 		</div>
@@ -78,9 +79,10 @@
 	</body>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script type='text/javascript'>
+		var APP_HOST = 'http://moseselee.herokuapp.com'
 		$(document).ready(function() {
 			var invite_code = getParameterByName('invite_code');
-			var url = 'http://moseselee.herokuapp.com/invitations/' + invite_code + '.json';
+			var url = APP_HOST + '/invitations/' + invite_code + '.json';
 
 			$.ajax({
 				type: 'GET',
@@ -90,7 +92,6 @@
 					withCredentials: true
 				}
 			}).done(function(data) {
-				console.log(data);
 				populateForm(data);
 			});
 		});
@@ -108,6 +109,7 @@
 			if (data.designated_seats == 1) {
 				$('#seat-word').html('seat');
 			}
+			$('#rsvp-form').attr('action', APP_HOST + '/invitations/' + data.id);
 		}
 	</script>
 </html>

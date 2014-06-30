@@ -20,7 +20,7 @@
 			<div class="rsvp-invite-text">
 				<p class="h3 rsvp-invite-text-one">
 					Together with their families,<br>
-					<strong>Grace &amp; Moses</strong> invite <strong>NAME</strong><br>
+					<strong>Grace &amp; Moses</strong> invite <strong id="name">{name}</strong><br>
 					to celebrate their wedding day.
 				</p>
 				<p class="h5">
@@ -36,7 +36,8 @@
 			</div><br>
 			<form action="" method="POST" id="rsvp-form" class="rsvp-form-container">
 				<p class="h5">
-					We've reserved <strong>NUM</strong> seats for you. Please RSVP by <strong>Thursday, July 31st</strong> - thanks!
+					We've reserved <strong id="designated-seats">{designated_seats}</strong> <span id="seat-word">seats</span> for you.<br>
+					Please RSVP by <strong>Thursday, July 31st</strong> - thanks!
 				</p>
 				<label class="rsvp-label" for="attending">
 					Are you planning on joining us?
@@ -75,4 +76,38 @@
 		</div>
 
 	</body>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type='text/javascript'>
+		$(document).ready(function() {
+			var invite_code = getParameterByName('invite_code');
+			var url = 'http://moseselee.herokuapp.com/invitations/' + invite_code + '.json';
+
+			$.ajax({
+				type: 'GET',
+				url: url,
+				dataType: "json",
+				xhrFields: {
+					withCredentials: true
+				}
+			}).done(function(data) {
+				console.log(data);
+				populateForm(data);
+			});
+		});
+
+		function getParameterByName(name) {
+			name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+			var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+			results = regex.exec(location.search);
+			return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+		}
+
+		function populateForm(data) {
+			$('#name').html(data.name);
+			$('#designated-seats').html(data.designated_seats);
+			if (data.designated_seats == 1) {
+				$('#seat-word').html('seat');
+			}
+		}
+	</script>
 </html>

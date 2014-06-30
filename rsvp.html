@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <title>
-      Grace &amp; Moses
-    </title>
-    <meta name="author" content="">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/i.css">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<title>
+			Grace &amp; Moses
+		</title>
+		<meta name="author" content="">
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/i.css">
 		<script type="text/javascript" src="//use.typekit.net/xdr1ekm.js"></script>
 		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-  </head>
-  <body class="rsvp-bg">
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript" src="js/modernizr-custom.js"></script> 
+		<script type="text/javascript" src="js/webshim/minified/polyfiller.js"></script> 
+	</head>
+	<body class="rsvp-bg">
 		<div class="container talign-center">
 			<a href="http://www.graceandmoses.com" class="rsvp-logo">
 			</a>
@@ -77,9 +80,10 @@
 		</div>
 
 	</body>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script type='text/javascript'>
-		var APP_HOST = 'http://moseselee.herokuapp.com'
+		$.webshims.polyfill('forms canvas');
+		
+		var APP_HOST = 'http://moseselee.herokuapp.com';
 		$(document).ready(function() {
 			var invite_code = getParameterByName('invite_code');
 			var url = APP_HOST + '/invitations/' + invite_code + '.json';

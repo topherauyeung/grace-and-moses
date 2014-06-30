@@ -42,6 +42,7 @@
 					We've reserved <strong id="designated-seats"></strong> <span id="seat-word">seats</span> for you.<br>
 					Please RSVP by <strong>Thursday, July 31st</strong> - thanks!
 				</p>
+				
 				<label class="rsvp-label" for="attending">
 					Are you planning on joining us?
 				</label>
@@ -49,18 +50,22 @@
 				<span class="rsvp-label-radio">Yes, I will be attending!</span><br>
 				<input type="radio" name="invitation[status]" value="declined" class="rsvp--input-radio">
 				<span class="rsvp-label-radio">No, I won't be able to join.</span><br>
-				<label class="rsvp-label" for="attending">
+				
+				<label class="rsvp-label" for="in-laws">
 					What should Grace &amp; Moses keep in mind when interacting with the in-laws?
 				</label>
-				<input type="text" name="invitation[questions][in_law_advice]" class="rsvp--input" required>
-				<label class="rsvp-label" for="attending">
+				<input id="in-laws" type="text" name="invitation[questions][in_law_advice]" class="rsvp--input" required>
+				
+				<label class="rsvp-label" for="fridge">
 					What should Grace &amp; Moses always have in their refrigerator?
 				</label>
-				<input type="text" name="invitation[questions][fridge_advice]" class="rsvp--input" required>
-				<label class="rsvp-label" for="attending">
+				<input id="fridge" type="text" name="invitation[questions][fridge_advice]" class="rsvp--input" required>
+
+				<label class="rsvp-label" for="one-word">
 					What is one word you would use to describe Grace &amp; Moses as a couple?
 				</label>
-				<input type="text" name="invitation[questions][one_word]" class="rsvp--input" required>
+				<input id="one-word" type="text" name="invitation[questions][one_word]" class="rsvp--input" required>
+
 				<label class="rsvp-label" for="alcohol">
 					What is your alcohol of choice?
 				</label>
@@ -74,6 +79,7 @@
 				<span class="rsvp-label-radio">Mimosa</span><br>
 				<input type="radio" name="invitation[questions][preferred_alcohol]" value="Champagne" class="rsvp--input-radio">
 				<span class="rsvp-label-radio">Champagne</span>
+
 				<input type="hidden" name="_method" value="PUT">
 				<button type="submit" class="rsvp--button-submit">Submit</button>
 			</form>

@@ -53,7 +53,7 @@
 				
 				<div id="accepted-seats-wrapper">
 					<label class="rsvp-label" for="accepted-seats">
-						How many guests will be coming?
+						How many guests over the age of two will be coming?
 					</label>
 					<select id="accepted-seats" name="invitation[accepted_seats]">
 					</select>
@@ -179,7 +179,7 @@
 				$('#guest-names-wrapper').show();
 				var acceptedSeats = $("#accepted-seats").val();
 				for (var i = 0; i < acceptedSeats; i++) {
-					var textField = $("<input type='text' name='invitation[guest_names][]' required><br>");
+					var textField = $("<input type='text' name='invitation[guest_names][]' class='rsvp--input' required>")
 					$('#guest-name-fields').append(textField);
 				}
 			});

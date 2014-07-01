@@ -165,10 +165,10 @@
 			// Show accepted seats dropdown if user selects "Yes"
 			$("input[name='invitation[status]']:radio").change(function() {
 				if ($("input[name='invitation[status]']:checked").val() == 'accepted') {
-					$('#accepted-seats-wrapper').show();
+					$('#accepted-seats-wrapper').slideDown();
 					$('#accepted-seats').prop('required', true);
 				} else {
-					$('#accepted-seats-wrapper').hide();
+					$('#accepted-seats-wrapper, #guest-names-wrapper').slideUp();
 					$('#accepted-seats').removeAttr('required');
 				}
 			});
@@ -176,12 +176,12 @@
 			// Ask user to enter names of guests based on accepted seats
 			$("#accepted-seats").change(function() {
 				$('#guest-name-fields').html('');
-				$('#guest-names-wrapper').show();
 				var acceptedSeats = $("#accepted-seats").val();
 				for (var i = 0; i < acceptedSeats; i++) {
 					var textField = $("<input type='text' name='invitation[guest_names][]' class='rsvp--input' required>")
 					$('#guest-name-fields').append(textField);
 				}
+				$('#guest-names-wrapper').slideDown();
 			});
 
 			// Point form to invitation API

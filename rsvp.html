@@ -51,11 +51,21 @@
 				<input type="radio" name="invitation[status]" value="declined" class="rsvp--input-radio">
 				<span class="rsvp-label-radio">No, I won't be able to join.</span><br>
 				
-				<label class="rsvp-label" for="accepted-seats">
-					How many people will be coming?
-				</label>
-				<select id="accepted-seats" name="invitation[accepted_seats]">
-				</select>
+				<div id="accepted-seats-wrapper">
+					<label class="rsvp-label" for="accepted-seats">
+						How many guests will be coming?
+					</label>
+					<select id="accepted-seats" name="invitation[accepted_seats]">
+					</select>
+				</div>
+
+				<div id="guest-names-wrapper">
+						<label class="rsvp-label" for="guest-names">
+							Please enter the full name for each guest.
+						</label>
+						<div id="guest-name-fields">
+						</div>
+				</div>
 
 
 				<label class="rsvp-label" for="in-laws">
@@ -95,9 +105,12 @@
 	</body>
 	<script type='text/javascript'>
 		$.webshims.polyfill('forms');
-		
 		var APP_HOST = 'http://moseselee.herokuapp.com';
+
 		$(document).ready(function() {
+			// Hide accepted seats dropdown by default
+			$('#accepted-seats-wrapper, #guest-names-wrapper').hide();
+			
 			var invite_code = getParameterByName('invite_code');
 			var url = APP_HOST + '/invitations/' + invite_code + '.json';
 
@@ -121,22 +134,57 @@
 		}
 
 		function populateForm(data) {
+			var seatOption, seatText;
+
 			$('#name').html(data.name);
+
+			// Properly pluralize "seats"
 			$('#designated-seats').html(data.designated_seats);
 			if (data.designated_seats == 1) {
 				$('#seat-word').html('seat');
 			}
-			for (var i = 0; i < data.designated_seats; i++) {
-				var seatOption = i + 1;
+			
+			// Populate accepted seats dropdown
+			for (var i = 0; i <= data.designated_seats; i++) {
+				if (i == 0) {
+					seatOption = '';
+					seatText = 'Select';
+				} else {
+					seatOption = i;
+					seatText = seatOption;
+				}
 				var optionField = $('<option></option>')
 					.attr('value', seatOption)
-					.text(seatOption);
-				if (seatOption == data.designated_seats) {
+					.text(seatText);
+				if (seatOption == 0) {
 					optionField.attr('selected', 'selected');
 				}
 				$('#accepted-seats').append(optionField);
 			}
 
+			// Show accepted seats dropdown if user selects "Yes"
+			$("input[name='invitation[status]']:radio").change(function() {
+				if ($("input[name='invitation[status]']:checked").val() == 'accepted') {
+					$('#accepted-seats-wrapper').show();
+					$('#accepted-seats').prop('required', true);
+				} else {
+					$('#accepted-seats-wrapper').hide();
+					$('#accepted-seats').removeAttr('required');
+				}
+			});
+
+			// Ask user to enter names of guests based on accepted seats
+			$("#accepted-seats").change(function() {
+				$('#guest-name-fields').html('');
+				$('#guest-names-wrapper').show();
+				var acceptedSeats = $("#accepted-seats").val();
+				for (var i = 0; i < acceptedSeats; i++) {
+					var textField = $("<input type='text' name='invitation[guest_names][]' required><br>");
+					$('#guest-name-fields').append(textField);
+				}
+			});
+
+			// Point form to invitation API
 			$('#rsvp-form').attr('action', APP_HOST + '/invitations/' + data.id);
 		}
 	</script>

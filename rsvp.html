@@ -113,6 +113,10 @@
 			
 			var invite_code = getParameterByName('invite_code');
 			var url = APP_HOST + '/invitations/' + invite_code + '.json';
+			var isAdmin = getParameterByName('admin');
+			if (isAdmin) {
+				url = url + '?admin=' + isAdmin;
+			}
 
 			$.ajax({
 				type: 'GET',

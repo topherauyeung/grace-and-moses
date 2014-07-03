@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <title>
-      Grace &amp; Moses
-    </title>
-    <meta name="author" content="">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/i.css">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<title>
+			Grace &amp; Moses
+		</title>
+		<meta name="author" content="">
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/i.css">
 		<script type="text/javascript" src="//use.typekit.net/xdr1ekm.js"></script>
 		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-  </head>
-  <body class="rsvp-bg">
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript" src="js/modernizr-custom.js"></script> 
+		<script type="text/javascript" src="js/webshim/minified/polyfiller.js"></script> 
+	</head>
+	<body class="rsvp-bg">
 		<div class="container talign-center">
 			<a href="http://www.graceandmoses.com" class="rsvp-logo">
 			</a>
 			<div class="rsvp-invite-text">
 				<p class="h3 rsvp-invite-text-one">
 					Together with their families,<br>
-					<strong>Grace &amp; Moses</strong> invite <strong>NAME</strong><br>
+					<strong>Grace &amp; Moses</strong> invite <strong id="name"></strong><br>
 					to celebrate their wedding day.
 				</p>
 				<p class="h5">
@@ -36,43 +39,157 @@
 			</div><br>
 			<form action="" method="POST" id="rsvp-form" class="rsvp-form-container">
 				<p class="h5">
-					We've reserved <strong>NUM</strong> seats for you. Please RSVP by <strong>Thursday, July 31st</strong> - thanks!
+					We've reserved <strong id="designated-seats"></strong> <span id="seat-word">seats</span> for you.<br>
+					Please RSVP by <strong>Thursday, July 31st</strong> - thanks!
 				</p>
+				
 				<label class="rsvp-label" for="attending">
 					Are you planning on joining us?
 				</label>
-				<input type="radio" name="attending" value="yes" class="rsvp--input-radio" required>
+				<input type="radio" name="invitation[status]" value="accepted" class="rsvp--input-radio" required>
 				<span class="rsvp-label-radio">Yes, I will be attending!</span><br>
-				<input type="radio" name="attending" value="no" class="rsvp--input-radio">
+				<input type="radio" name="invitation[status]" value="declined" class="rsvp--input-radio">
 				<span class="rsvp-label-radio">No, I won't be able to join.</span><br>
-				<label class="rsvp-label" for="attending">
+				
+				<div id="accepted-seats-wrapper">
+					<label class="rsvp-label" for="accepted-seats">
+						How many guests over the age of two will be coming?
+					</label>
+					<select id="accepted-seats" name="invitation[accepted_seats]">
+					</select>
+				</div>
+
+				<div id="guest-names-wrapper">
+						<label class="rsvp-label" for="guest-names">
+							Please enter the full name for each guest.
+						</label>
+						<div id="guest-name-fields">
+						</div>
+				</div>
+
+
+				<label class="rsvp-label" for="in-laws">
 					What should Grace &amp; Moses keep in mind when interacting with the in-laws?
 				</label>
-				<input type="text" name="in-laws" class="rsvp--input" required>
-				<label class="rsvp-label" for="attending">
+				<input id="in-laws" type="text" name="invitation[questions][in_law_advice]" class="rsvp--input" required>
+				
+				<label class="rsvp-label" for="fridge">
 					What should Grace &amp; Moses always have in their refrigerator?
 				</label>
-				<input type="text" name="fridge" class="rsvp--input" required>
-				<label class="rsvp-label" for="attending">
+				<input id="fridge" type="text" name="invitation[questions][fridge_advice]" class="rsvp--input" required>
+
+				<label class="rsvp-label" for="one-word">
 					What is one word you would use to describe Grace &amp; Moses as a couple?
 				</label>
-				<input type="text" name="one-word-couple" class="rsvp--input" required>
+				<input id="one-word" type="text" name="invitation[questions][one_word]" class="rsvp--input" required>
+
 				<label class="rsvp-label" for="alcohol">
 					What is your alcohol of choice?
 				</label>
-				<input type="radio" name="alcohol" value="Red Wine" class="rsvp--input-radio" required>
+				<input type="radio" name="invitation[questions][preferred_alcohol]" value="Red Wine" class="rsvp--input-radio" required>
 				<span class="rsvp-label-radio">Red Wine</span><br>
-				<input type="radio" name="alcohol" value="White Wine" class="rsvp--input-radio">
+				<input type="radio" name="invitation[questions][preferred_alcohol]" value="White Wine" class="rsvp--input-radio">
 				<span class="rsvp-label-radio">White Wine</span><br>
-				<input type="radio" name="alcohol" value="Craft Beer" class="rsvp--input-radio">
+				<input type="radio" name="invitation[questions][preferred_alcohol]" value="Craft Beer" class="rsvp--input-radio">
 				<span class="rsvp-label-radio">Craft Beer</span><br>
-				<input type="radio" name="alcohol" value="Mimosa" class="rsvp--input-radio">
+				<input type="radio" name="invitation[questions][preferred_alcohol]" value="Mimosa" class="rsvp--input-radio">
 				<span class="rsvp-label-radio">Mimosa</span><br>
-				<input type="radio" name="alcohol" value="Champagne" class="rsvp--input-radio">
+				<input type="radio" name="invitation[questions][preferred_alcohol]" value="Champagne" class="rsvp--input-radio">
 				<span class="rsvp-label-radio">Champagne</span>
+
+				<input type="hidden" name="_method" value="PUT">
 				<button type="submit" class="rsvp--button-submit">Submit</button>
 			</form>
 		</div>
 
 	</body>
+	<script type='text/javascript'>
+		$.webshims.polyfill('forms');
+		var APP_HOST = 'http://moseselee.herokuapp.com';
+
+		$(document).ready(function() {
+			// Hide accepted seats dropdown by default
+			$('#accepted-seats-wrapper, #guest-names-wrapper').hide();
+			
+			var invite_code = getParameterByName('invite_code');
+			var url = APP_HOST + '/invitations/' + invite_code + '.json';
+			var isAdmin = getParameterByName('admin');
+			if (isAdmin) {
+				url = url + '?admin=' + isAdmin;
+			}
+
+			$.ajax({
+				type: 'GET',
+				url: url,
+				dataType: "json",
+				xhrFields: {
+					withCredentials: true
+				}
+			}).done(function(data) {
+				populateForm(data);
+			});
+		});
+
+		function getParameterByName(name) {
+			name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+			var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+			results = regex.exec(location.search);
+			return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+		}
+
+		function populateForm(data) {
+			var seatOption, seatText;
+
+			$('#name').html(data.name);
+
+			// Properly pluralize "seats"
+			$('#designated-seats').html(data.designated_seats);
+			if (data.designated_seats == 1) {
+				$('#seat-word').html('seat');
+			}
+			
+			// Populate accepted seats dropdown
+			for (var i = 0; i <= data.designated_seats; i++) {
+				if (i == 0) {
+					seatOption = '';
+					seatText = 'Select';
+				} else {
+					seatOption = i;
+					seatText = seatOption;
+				}
+				var optionField = $('<option></option>')
+					.attr('value', seatOption)
+					.text(seatText);
+				if (seatOption == 0) {
+					optionField.attr('selected', 'selected');
+				}
+				$('#accepted-seats').append(optionField);
+			}
+
+			// Show accepted seats dropdown if user selects "Yes"
+			$("input[name='invitation[status]']:radio").change(function() {
+				if ($("input[name='invitation[status]']:checked").val() == 'accepted') {
+					$('#accepted-seats-wrapper').slideDown();
+					$('#accepted-seats').prop('required', true);
+				} else {
+					$('#accepted-seats-wrapper, #guest-names-wrapper').slideUp();
+					$('#accepted-seats').removeAttr('required');
+				}
+			});
+
+			// Ask user to enter names of guests based on accepted seats
+			$("#accepted-seats").change(function() {
+				$('#guest-name-fields').html('');
+				var acceptedSeats = $("#accepted-seats").val();
+				for (var i = 0; i < acceptedSeats; i++) {
+					var textField = $("<input type='text' name='invitation[guest_names][]' class='rsvp--input' required>")
+					$('#guest-name-fields').append(textField);
+				}
+				$('#guest-names-wrapper').slideDown();
+			});
+
+			// Point form to invitation API
+			$('#rsvp-form').attr('action', APP_HOST + '/invitations/' + data.id);
+		}
+	</script>
 </html>

@@ -98,7 +98,7 @@
 				<span class="rsvp-label-radio">Champagne</span>
 
 				<input type="hidden" name="_method" value="PUT">
-				<button type="submit" class="rsvp--button-submit">Submit</button>
+				<button id="rsvp-submit-button" type="submit" class="rsvp--button-submit">Submit</button>
 			</form>
 		</div>
 
@@ -190,6 +190,9 @@
 
 			// Point form to invitation API
 			$('#rsvp-form').attr('action', BACKEND_HOST + '/invitations/' + data.id);
+			$('#rsvp-submit-button').submit(function() {
+				window.location.href = 'http://www.graceandmoses.com/rsvp-complete';
+			});
 		}
 	</script>
 </html>

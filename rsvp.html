@@ -105,14 +105,14 @@
 	</body>
 	<script type='text/javascript'>
 		$.webshims.polyfill('forms');
-		var APP_HOST = 'http://moseselee.herokuapp.com';
+		var BACKEND_HOST = 'http://moseselee.herokuapp.com';
 
 		$(document).ready(function() {
 			// Hide accepted seats dropdown by default
 			$('#accepted-seats-wrapper, #guest-names-wrapper').hide();
 			
 			var invite_code = getParameterByName('invite_code');
-			var url = APP_HOST + '/invitations/' + invite_code + '.json';
+			var url = BACKEND_HOST + '/invitations/' + invite_code + '.json';
 			var isAdmin = getParameterByName('admin');
 			if (isAdmin) {
 				url = url + '?admin=' + isAdmin;
@@ -189,7 +189,7 @@
 			});
 
 			// Point form to invitation API
-			$('#rsvp-form').attr('action', APP_HOST + '/invitations/' + data.id);
+			$('#rsvp-form').attr('action', BACKEND_HOST + '/invitations/' + data.id);
 		}
 	</script>
 </html>

@@ -126,7 +126,11 @@
 					withCredentials: true
 				}
 			}).done(function(data) {
-				populateForm(data);
+				if ((data.status === 'accepted') || (data.status === 'declined')) {
+					window.location.href = 'http://www.graceandmoses.com/rsvp-complete';
+				} else {
+					populateForm(data);
+				}
 			});
 		});
 
